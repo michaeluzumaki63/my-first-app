@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio — a SaaS website</title>
+  <meta name="description" content="I develop a website that provides software as a service. The product stays unnamed.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231a1814'/%3E%3Crect x='7' y='8' width='18' height='2' fill='%23efeae1'/%3E%3Crect x='7' y='15' width='12' height='2' fill='%23c4a574'/%3E%3Crect x='7' y='22' width='18' height='2' fill='%23efeae1'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Outfit:wght@340;460;560&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #efeae1;
+      --ink: #1a1814;
+      --muted: #5e584e;
+      --line: #d5cec3;
+      --card: #f6f3ec;
+      --brass: #8a6432;
+      --brass-soft: #c4a574;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 100% -10%, rgba(196, 165, 116, 0.18), transparent 55%),
+        var(--paper);
+      font-family: Outfit, "Segoe UI", sans-serif;
+      font-weight: 340;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1080px, calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.35rem 0 0.4rem;
+    }
+
+    .mark {
+      text-decoration: none;
+      font-weight: 560;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    nav a:hover { color: var(--ink); }
+
+    .hero {
+      padding: 4.5rem 0 3.2rem;
+      max-width: 16em;
+    }
+
+    .kicker {
+      margin: 0 0 1.1rem;
+      color: var(--brass);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 560;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.7rem, 7vw, 5.15rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+    }
+
+    .lede {
+      margin: 1.6rem 0 0;
+      max-width: 38rem;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    section { padding: 1rem 0 3.5rem; }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: clamp(1.4rem, 3vw, 2.4rem);
+    }
+
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 1.4rem 0 0.8rem;
+      font-family: Fraunces, Georgia, serif;
+      font-weight: 620;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .panel p { margin: 0; max-width: 40rem; }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+      padding-top: 1.3rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .facts strong {
+      display: block;
+      font-weight: 560;
+      margin-bottom: 0.25rem;
+    }
+
+    .facts span { color: var(--muted); font-size: 0.95rem; }
+
+    .rows { margin: 0; padding: 0; list-style: none; }
+
+    .rows li {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
+      gap: 0.5rem;
+      padding: 1.15rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .rows li:last-child { border-bottom: 1px solid var(--line); }
+
+    .num {
+      color: var(--brass-soft);
+      font-family: Fraunces, Georgia, serif;
+      font-size: 1.15rem;
+    }
+
+    .rows h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1.05rem;
+      font-weight: 560;
+    }
+
+    .rows p { margin: 0; color: var(--muted); }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.5rem 0 2.5rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer a { color: var(--ink); }
+
+    @media (max-width: 700px) {
+      .hero { padding-top: 2.8rem; max-width: none; }
+      .facts, .rows li { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
+      nav { gap: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="mark" href="/">Portfolio</a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#practice">Practice</a>
+        <a href="https://github.com/michaeluzumaki63">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="kicker">Software as a service</p>
+        <h1>I develop a website that provides a service.</h1>
+        <p class="lede">
+          People open it in a browser, sign in, and use software I keep running.
+          I leave the product unnamed on purpose. This page is about the website,
+          and about the work of building it.
+        </p>
+      </section>
+
+      <section id="work">
+        <article class="panel">
+          <div class="panel-top">
+            <span>01 — The work</span>
+            <span>Ongoing</span>
+          </div>
+          <h2>A SaaS website</h2>
+          <p>
+            I develop one website that provides software as a service.
+            There is a place to arrive, a way to get in, and a service
+            people return to. I am not going to say what the product is,
+            who it is for, or which problem it takes on. The offering is
+            the website itself, sold as a service.
+          </p>
+          <div class="facts">
+            <div>
+              <strong>A website</strong>
+              <span>Something a person can open, read, and come back to.</span>
+            </div>
+            <div>
+              <strong>An account</strong>
+              <span>A way in, so the service belongs to the person using it.</span>
+            </div>
+            <div>
+              <strong>A service</strong>
+              <span>Software that stays available after the laptop is closed.</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="practice">
+        <p class="kicker">Practice</p>
+        <h2>What I actually do</h2>
+        <ol class="rows">
+          <li>
+            <span class="num">01</span>
+            <div>
+              <h3>Shape the site</h3>
+              <p>Pages, type, and the path from the front door to the signed-in product.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div>
+              <h3>Keep access honest</h3>
+              <p>Accounts and the boundary between what is public and what is yours.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div>
+              <h3>Build the product surface</h3>
+              <p>The part people use. Its purpose stays off this page.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <div>
+              <h3>Leave it running</h3>
+              <p>Deployed as a website, so the service is there when someone needs it.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </main>
+
+    <footer>
+      <span>The product is real. Its name is not on this page.</span>
+      <a href="https://github.com/michaeluzumaki63">github.com/michaeluzumaki63</a>
+    </footer>
+  </div>
+</body>
+</html>

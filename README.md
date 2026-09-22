@@ -1,25 +1,21 @@
-# my-first-app
+# Portfolio
 
-A clean FastAPI starter project with a welcome endpoint, health check, and Docker support.
+A one-page portfolio served by FastAPI. It says that I develop a website that provides software as a service, and it leaves the product unnamed.
 
-## Install
-
-```bash
-python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
-```
+Live: https://my-first-app-cp7j.onrender.com
 
 ## Run
 
 ```bash
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-Then open http://127.0.0.1:8000/ and check health at http://127.0.0.1:8000/health.
+Open http://127.0.0.1:8000/ . Health check: http://127.0.0.1:8000/health .
 
-## Docker
+Render deploys the `main` branch of this repo with:
 
-Build and run:
-
-```bash
-docker build -t my-first-app . && docker run -p 8000:8000 my-first-app
-```
+- Build: `pip install -r requirements.txt`
+- Start: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
